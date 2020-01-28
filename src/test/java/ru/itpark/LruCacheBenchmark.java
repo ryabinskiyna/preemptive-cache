@@ -4,7 +4,7 @@ import com.carrotsearch.junitbenchmarks.AbstractBenchmark;
 import com.carrotsearch.junitbenchmarks.BenchmarkOptions;
 import org.junit.Test;
 
-public class CacheLRUBenchmark extends AbstractBenchmark {
+public class LruCacheBenchmark extends AbstractBenchmark {
 
     private LruCache<Integer, Integer> cache;
     private int count = 5_000_000;

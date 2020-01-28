@@ -6,8 +6,12 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @param <K> - the type of the cache keys
- * @param <V> - the type of the cache values
+ * An LRU cache, based on LinkedHashMap
+ * This cache has a fixed maximum number of elements (<code>mCapacity</code>).
+ * If the cache is full and another entry is added, the LRU (least recently used) entry is dropped.
+ *
+ * @param <K> the type of the cache keys
+ * @param <V> the type of the cache values
  * @author Ryabinskiy Nikita
  */
 
@@ -19,8 +23,10 @@ public class LruCache<K, V> {
 
     /**
      * Constructor
+     * <p>
+     * If the cache is to be used by multiple threads, the cache must be wrapped with code to synchronize the methods
      *
-     * @param capacity - the limit of objects that are kept in the cache
+     * @param capacity the limit of objects that are kept in the cache
      */
 
     public LruCache(int capacity) {
@@ -35,7 +41,7 @@ public class LruCache<K, V> {
     /**
      * Returns the object to which this object cache maps the specified key
      *
-     * @param key - key with which the specified value is to be associated
+     * @param key key with which the specified value is to be associated
      * @return the value to which this object cache maps the specified key, or null if the object cache contains no mapping for the key
      */
 
@@ -53,8 +59,8 @@ public class LruCache<K, V> {
     /**
      * Associates the specified value with the specified key in this object cache. If the object cache previously contained a mapping for this key, the old value is replaced
      *
-     * @param key   - key with which the specified value is to be associated
-     * @param value - value to be associated with the specified key
+     * @param key   key with which the specified value is to be associated
+     * @param value value to be associated with the specified key
      */
 
     public boolean put(K key, V value) {

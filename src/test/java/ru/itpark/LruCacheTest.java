@@ -3,7 +3,6 @@ package ru.itpark;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LruCacheTest {
 
@@ -14,8 +13,8 @@ class LruCacheTest {
             assertNull(test.get(1));
         }
         {
-            test.put(1, "Demo");
-            assertEquals("Demo", test.get(1));
+            test.put(1, "one");
+            assertEquals("one", test.get(1));
         }
 
     }
@@ -24,15 +23,15 @@ class LruCacheTest {
     void put() {
         LruCache<Object, Object> test = new LruCache<>(1);
         {
-            assertFalse(test.put(1, "Demo"));
+            assertFalse(test.put(1, "one"));
         }
         {
-            test.put(1, "Demo");
-            assertTrue(test.put(1, "Demo"));
+            test.put(1, "one");
+            assertTrue(test.put(1, "one"));
         }
         {
-            test.put(2, "Betta");
-            assertEquals("Betta", test.get(2));
+            test.put(2, "two");
+            assertEquals("two", test.get(2));
         }
     }
 }
